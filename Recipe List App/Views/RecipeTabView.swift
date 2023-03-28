@@ -16,7 +16,7 @@ struct RecipeTabView: View {
                 VStack{
                     NavigationView{
                         
-                        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                        RecipeFeatureView()
                             .navigationTitle("Features")
                     }
                 }
@@ -29,17 +29,18 @@ struct RecipeTabView: View {
                 .tag(0)
                 
                 //Recipe Page
-                VStack{
                     RecipeListView()
-                }
                 .tabItem{
-                    Image(systemName:"list.clipboard")
-                    Text("Recipes")
+                    VStack{
+                        Image(systemName:"list.clipboard")
+                        Text("Recipes")
+                    }
                 }
                 .tag(1)
                 
                 
             }
+        .environmentObject(RecipeModel())
         }
     }
 
